@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const RegisterPage = () => {
+  const handleRegister = (event) => {
+    const { createUser } = useContext(AuthContext);
+    eveevent.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+    console.log(name, email, password, photo);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="h-screen flex items-center justify-center bg-gray-200">
       <div className="bg-white p-10 rounded-lg shadow-lg max-w-md w-full">
         <h1 className="text-2xl font-bold mb-5 text-center">Register</h1>
-        <form className="space-y-4">
+        <form onSubmit={handleRegister} className="space-y-4">
           <div className="flex flex-col">
             <label htmlFor="name" className="font-bold mb-1">
               Name
@@ -62,9 +81,6 @@ const RegisterPage = () => {
           </button>
         </form>
         <div className="flex flex-col space-y-4 mt-5">
-          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-            Sign up with Google
-          </button>
           <p className="text-center">
             Already have an account?{" "}
             <a href="/login" className="text-blue-500">

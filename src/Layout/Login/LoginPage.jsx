@@ -1,15 +1,41 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const LoginPage = () => {
+  const { signIn, googleSignIn, setLoading } = useContext(AuthContext);
+  const [error, setError] = useState("");
+
+  const handleSignInGoogle = () => {
+    googleSignIn()
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
   const handleLogin = (event) => {
     event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => setError(error.message));
   };
 
   return (
     <div className="h-screen flex items-center justify-center bg-gray-200">
       <div className="bg-white p-10 rounded-lg shadow-lg max-w-md w-full">
         <h1 className="text-2xl font-bold mb-5 text-center">Log In</h1>
+        {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         <form onSubmit={handleLogin} className="space-y-4">
           <div className="flex flex-col">
             <label htmlFor="email" className="font-bold mb-1">
@@ -44,7 +70,10 @@ const LoginPage = () => {
           </button>
         </form>
         <div className="flex flex-col space-y-4 mt-5">
-          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+          <button
+            onClick={handleSignInGoogle}
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          >
             Sign in with Google
           </button>
           <p className="text-center">
