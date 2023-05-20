@@ -10,11 +10,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="  bg-[#363a3b]">
-      <div className="navbar bg-opacity-40   fixed ">
+    <div className="bg-[#afebfa] ">
+      <div className="navbar  w-9/12 mx-auto ">
         {/* Logo and Website Name */}
-        <div className="navbar-start   flex items-center ">
-          <a className="navbar-brand inline-flex items-center">
+        <div className="navbar-start flex items-center">
+          <a className="navbar-brand inline-flex items-center" href="/">
             <img className="w-20 h-20" src={logo} alt="Website Logo" />
             <span className="text-xl font-bold text-[#fac2eb]">CRAFTEASE</span>
           </a>
@@ -98,7 +98,7 @@ const Navbar = () => {
             {isDropdownOpen && (
               <ul className="dropdown-content mt-3 shadow bg-base-100 rounded-box w-24 p-2 md:w-52 absolute right-1">
                 <li>
-                  <a href="/">Home</a>
+                  <Link href="/">Home</Link>
                 </li>
                 <li>
                   <a href="/toys">All Toys</a>
