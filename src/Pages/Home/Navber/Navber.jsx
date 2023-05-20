@@ -10,8 +10,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-[#afebfa] ">
-      <div className="navbar  w-9/12 mx-auto ">
+    <div className="bg-[#afebfa]  ">
+      <div className="navbar  w-9/12 mx-auto  ">
         {/* Logo and Website Name */}
         <div className="navbar-start flex items-center">
           <a className="navbar-brand inline-flex items-center" href="/">
