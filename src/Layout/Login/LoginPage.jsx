@@ -2,11 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LoginPage = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div className="h-screen flex items-center justify-center bg-gray-200">
       <div className="bg-white p-10 rounded-lg shadow-lg max-w-md w-full">
         <h1 className="text-2xl font-bold mb-5 text-center">Log In</h1>
-        <form className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div className="flex flex-col">
             <label htmlFor="email" className="font-bold mb-1">
               Email
