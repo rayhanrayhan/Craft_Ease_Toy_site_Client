@@ -10,10 +10,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-10/12 md:w-9/12 mx-auto">
-      <div className="navbar bg-base-100">
+    <div className="  bg-[#363a3b]">
+      <div className="navbar bg-opacity-40   fixed ">
         {/* Logo and Website Name */}
-        <div className="navbar-start flex items-center gap-5">
+        <div className="navbar-start   flex items-center ">
           <a className="navbar-brand inline-flex items-center">
             <img className="w-20 h-20" src={logo} alt="Website Logo" />
             <span className="text-xl font-bold text-[#fac2eb]">CRAFTEASE</span>
@@ -64,6 +64,9 @@ const Navbar = () => {
               <ul className="dropdown-content shadow bg-base-100 rounded-box w-15 md:w-32 p-3 absolute right-3">
                 <li>
                   <Link to="/logout">Logout</Link>
+                </li>
+                <li>
+                  <Link to="/login">Login</Link>
                 </li>
               </ul>
             )}
