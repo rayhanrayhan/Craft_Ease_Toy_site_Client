@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const RegisterPage = () => {
+  const { createUser } = useContext(AuthContext);
   const handleRegister = (event) => {
-    const { createUser } = useContext(AuthContext);
-    eveevent.preventDefault();
+    event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -16,6 +17,20 @@ const RegisterPage = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {
+            alert("Profile Update");
+            // Profile updated!
+            // ...
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+          });
       })
       .catch((error) => console.log(error));
   };
@@ -50,14 +65,14 @@ const RegisterPage = () => {
             />
           </div>
           <div className="mb-5">
-            <label htmlFor="photoURL" className="block font-bold mb-1">
+            <label htmlFor="photo" className="block font-bold mb-1">
               Profile picture URL
             </label>
             <input
               type="text"
-              id="photoURL"
+              id="photo"
               className="border border-gray-400 p-2 w-full"
-              name="photoURL"
+              name="photo"
               required
             />
           </div>
