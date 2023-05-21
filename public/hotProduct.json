@@ -1,0 +1,38 @@
+[
+    {
+        "_id": "1",
+        "img": "https://m.media-amazon.com/images/I/81Ww4tB4IdL._AC_SL1500_.jpg",
+        "price": 9.99,
+        "rating": 4.5
+    },
+    {
+        "_id": "2",
+        "img": "https://m.media-amazon.com/images/I/91MeCsPGRGL._AC_SL1500_.jpg",
+        "price": 12.99,
+        "rating": 4.2
+    },
+    {
+        "_id": "3",
+        "img": "https://m.media-amazon.com/images/I/91Oi3D66f0L._AC_SL1500_.jpg",
+        "price": 7.99,
+        "rating": 3.8
+    },
+    {
+        "_id": "4",
+        "img": "https://m.media-amazon.com/images/I/91MeCsPGRGL._AC_SL1500_.jpg",
+        "price": 14.99,
+        "rating": 4.7
+    },
+    {
+        "_id": "5",
+        "img": "https://m.media-amazon.com/images/I/71vdh51dKbL._AC_SL1000_.jpg",
+        "price": 10.99,
+        "rating": 4.0
+    },
+    {
+        "_id": "6",
+        "img": "https://m.media-amazon.com/images/I/616m80nIKML._AC_SX679_.jpg",
+        "price": 8.99,
+        "rating": 4.6
+    }
+]
