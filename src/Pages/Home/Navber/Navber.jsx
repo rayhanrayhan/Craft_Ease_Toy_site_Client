@@ -12,28 +12,33 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-[#afebfa] fixed w-full top-0 left-0  z-40">
-      <div className="navbar  w-9/12 mx-auto  ">
+    <div className="bg-[#00add8] fixed w-full top-0 left-0 z-40 ">
+      <div className="navbar w-9/12 mx-auto  flex items-center justify-between py-4">
         {/* Logo and Website Name */}
-        <div className="navbar-start flex items-center">
-          <a className="navbar-brand inline-flex items-center" href="/">
+        <div className="flex items-center justify-center md:justify-start">
+          <Link
+            className="navbar-brand flex flex-col items-center md:flex-row"
+            to="/"
+          >
             <img className="w-20 h-20" src={logo} alt="Website Logo" />
-            <span className="text-xl font-bold text-[#fac2eb]">CRAFTEASE</span>
-          </a>
+            <span className="text-xl font-bold ml-2 text-[#fac2eb]">
+              CRAFTEASE
+            </span>
+          </Link>
         </div>
 
         {/* Navigation Links */}
         <div className="navbar-center hidden lg:flex flex-wrap gap-5">
           <ul className="navbar-menu inline-flex items-center gap-5">
             <li className="navbar-item">
-              <a href="/" className="navbar-link">
+              <Link to="/" className="navbar-link">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="navbar-item">
-              <a href="/toys" className="navbar-link">
+              <Link to="/allToys" className="navbar-link">
                 All Toys
-              </a>
+              </Link>
             </li>
             {user && (
               <>
@@ -64,7 +69,7 @@ const Navbar = () => {
             <button className="btn btn-ghost btn-circle">
               <img src="" alt="User Profile" className="w-8 h-8" />
             </button>
-            <h1 className="absolute -bottom-10 bg-white px-6 py-2 opacity-0 invisible shadow-md right-0 group-hover:opacity-100 group-hover:visible duration-300  ">
+            <h1 className="absolute -bottom-10 bg-white px-6 py-2 opacity-0 invisible shadow-md right-0 group-hover:opacity-100 group-hover:visible duration-300">
               {user?.displayName}
             </h1>
           </div>
@@ -103,28 +108,30 @@ const Navbar = () => {
                 />
               </svg>
             </button>
-            <ul className="dropdown-content mt-3 shadow bg-base-100 rounded-box w-24 p-2 md:w-52 absolute right-1">
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <a href="/toys">All Toys</a>
-              </li>
-              {user && (
-                <>
-                  <li>
-                    <a href="/my-toys">My Toys</a>
-                  </li>
-                  <li>
-                    <a href="/add-toy">Add A Toy</a>
-                  </li>
-                </>
-              )}
+            {isDropdownOpen && (
+              <ul className="dropdown-content mt-3 shadow bg-base-100 rounded-box w-24 p-2 md:w-52 absolute right-1">
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/toys">All Toys</Link>
+                </li>
+                {user && (
+                  <>
+                    <li>
+                      <Link to="/my-toys">My Toys</Link>
+                    </li>
+                    <li>
+                      <Link to="/add-toy">Add A Toy</Link>
+                    </li>
+                  </>
+                )}
 
-              <li>
-                <a href="/blogs">Blogs</a>
-              </li>
-            </ul>
+                <li>
+                  <Link to="/blogs">Blogs</Link>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </div>

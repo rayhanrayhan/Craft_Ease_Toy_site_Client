@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div className="">
-      <div className="carousel relative w-full ">
+      <div className="carousel relative w-full my-8 md:my-0 ">
         <div id="slide1" className="carousel-item py-28 relative w-full">
           <img src={banner} className="w-full" alt="Banner 1" />
 

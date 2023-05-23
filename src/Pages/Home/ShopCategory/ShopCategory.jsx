@@ -8,12 +8,12 @@ const ShopCategory = () => {
   const [category, setCategory] = useState("Decorate & Design");
 
   useEffect(() => {
-    fetch("/category.json")
+    fetch("http://localhost:5000/allToys")
       .then((res) => res.json())
       .then((data) => {
         if (data.length) {
           const filterData = data.filter((toy) => toy.subCategory === category);
-          setToys(filterData);
+          setToys(filterData.slice(0, 3));
         }
       });
   }, [category]);
