@@ -6,12 +6,13 @@ import Swal from 'sweetalert2';
 const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [MyToys, setMyToys] = useState([]);
+    const [sort, setSort] = useState('');
     useEffect(() => {
-        const url = `http://localhost:5000/myToys?email=${user?.email}`
+        const url = `http://localhost:5000/myToys?email=${user?.email}&sort=${sort}`
         fetch(url)
             .then(res => res.json())
             .then(data => setMyToys(data))
-    }, [user?.email])
+    }, [user?.email, sort])
 
 
     // delete toy
@@ -50,6 +51,10 @@ const MyToys = () => {
     return (
         <section className="p-4 md:p-28">
             <h1 className='text-4xl text-center my-10'>My Toys</h1>
+            <div className='my-4 text-right ml-auto'>
+                <button onClick={() => setSort('low')} className="btn btn-outline btn-info mr-2">Low Price</button>
+                <button onClick={() => setSort('high')} className="btn btn-outline btn-success">High Price</button>
+            </div>
             <div>
                 <table className="table table-compact w-full">
                     <thead>

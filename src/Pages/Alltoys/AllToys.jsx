@@ -1,27 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import ToysRow from "./ToysRow";
 
 const AllToys = () => {
-  const allToysData = useLoaderData();
+
+  const [allToys, setAllToys] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchQueryChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
-  const handleSearch = () => {
-    //  search query
-    console.log("Search Query:", searchQuery);
-  };
-
-  const filteredToys = allToysData.filter((toy) =>
-    toy.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  useEffect(() => {
+    fetch(`http://localhost:5000/allToys?search=${searchQuery}`)
+      .then(res => res.json())
+      .then(data => setAllToys(data))
+  }, [searchQuery])
 
   return (
     <div className="p-4 md:p-28">
-      {" "}
+      <h1 className='text-4xl text-center my-10'>All Toys</h1>
+
       {/* Reduced padding on mobile devices */}
       <div className="text-center my-6">
         <input
@@ -31,7 +30,7 @@ const AllToys = () => {
           value={searchQuery}
           onChange={handleSearchQueryChange}
         />
-        <button className="btn btn-primary" onClick={handleSearch}>
+        <button className="btn btn-primary">
           Search
         </button>
       </div>
@@ -46,7 +45,7 @@ const AllToys = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredToys.map((toy) => (
+          {allToys.map((toy) => (
             <ToysRow key={toy._id} toy={toy} />
           ))}
         </tbody>
