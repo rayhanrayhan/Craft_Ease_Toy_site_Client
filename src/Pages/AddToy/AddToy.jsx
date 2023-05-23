@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const AddToy = () => {
     const { user } = useContext(AuthContext);
@@ -21,7 +22,7 @@ const AddToy = () => {
         }
 
         fetch('http://localhost:5000/allToys', {
-            method: 'PATCH',
+            method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
@@ -29,8 +30,10 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                // form.reset();
+                if (data.insertedId) {
+                    toast("Toy Added Done")
+                    form.reset();
+                }
             })
     }
     return (

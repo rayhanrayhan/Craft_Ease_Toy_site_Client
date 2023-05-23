@@ -10,6 +10,7 @@ import Error from "../Pages/Error/Error";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
 import AddToy from "../Pages/AddToy/AddToy";
 import MyToys from "../Pages/MyToys/MyToys";
+import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 
 const router = createBrowserRouter([
   {
@@ -45,9 +46,15 @@ const router = createBrowserRouter([
       },
       {
         path: "my-toys",
-        element: <MyToys></MyToys>,
-        loader: () =>
-          fetch("https://craft-ease-main-server.vercel.app/allToys")
+        element: <MyToys></MyToys>
+      },
+      {
+        path: "update/:id",
+        element: <UpdateToy></UpdateToy>,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/viewDetails/${params.id}`
+          )
       },
       {
         path: "viewDetails/:id",

@@ -12,10 +12,10 @@ const MyToysRow = ({ toy }) => {
             <td className="px-4 py-2">{seller}</td>
             <td className="px-4 py-2">{price}</td>
             <td className="px-4 py-2 text-right space-x-2">
-                <Link className="btn btn-danger" to={`/update/${_id}`}>
+                <Link className="btn btn-info" to={`/update/${_id}`}>
                     Update
                 </Link>
-                <button className='btn btn-danger'>Delete</button>
+                <button className='btn btn-error'>Delete</button>
             </td>
         </tr>
     );
