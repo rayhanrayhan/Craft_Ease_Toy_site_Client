@@ -62,6 +62,10 @@ const ViewDetails = () => {
           <p className="mb-4 ">
             Available Quantity: {viewDetailsData.quantity}
           </p>
+          <div>
+            <p className="mb-4 ">Seller Email: {viewDetailsData.email}</p>
+            <p className="mb-4 ">Seller Name: {viewDetailsData.seller}</p>
+          </div>
           <div className="card-actions justify-end">
             <button className="btn btn-primary">Add to Cart</button>
           </div>
