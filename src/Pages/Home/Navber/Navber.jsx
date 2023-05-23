@@ -67,9 +67,14 @@ const Navbar = () => {
         <div className="navbar-end flex items-center">
           <div className="relative group">
             <button className="btn btn-ghost btn-circle">
-              <img src="" alt="User Profile" className="w-8 h-8" />
+              {/* <img src="" alt="User Profile" className="w-8 h-8" /> */}
+              <img
+                className="w-10 h-10 rounded-full  "
+                src={user?.photoURL}
+                alt=""
+              />
             </button>
-            <h1 className="absolute -bottom-10 bg-white px-6 py-2 opacity-0 invisible shadow-md right-0 group-hover:opacity-100 group-hover:visible duration-300">
+            <h1 className="absolute -bottom-10 bg-white  px-6 py-2 rounded-lg opacity-0 invisible shadow-md right-0 group-hover:opacity-100 group-hover:visible duration-300">
               {user?.displayName}
             </h1>
           </div>

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 const LoginPage = () => {
   const { signIn, googleSignIn, setLoading } = useContext(AuthContext);
@@ -23,12 +24,30 @@ const LoginPage = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    // Validation
+    if (email === "" || password === "") {
+      setError("Please enter both email and password"); // update the error message state variable
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long"); // update the error message state variable
+      return;
+    }
+    setLoading(true);
+
     signIn(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        form.reset();
+        navigate(from, { replace: true });
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => {
+        // console.log("Invalid email or password");
+        form.reset();
+        setLoading(false);
+        toast.error("Invalid email or password");
+        <ToastContainer />;
+      });
   };
 
   return (
