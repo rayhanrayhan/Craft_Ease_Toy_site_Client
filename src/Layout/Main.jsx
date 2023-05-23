@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import Footer from "../Pages/Footer/Footer";
 import { Outlet } from "react-router-dom";
 import Navber from "../Pages/Home/Navber/Navber";
-
-import Banner from "../Pages/Home/Banner/Banner";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const Main = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      once: true, // Only animate once
+    });
+  }, []);
+
   return (
     <div>
       <Navber></Navber>

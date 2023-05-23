@@ -11,7 +11,10 @@ const PopularitySection = () => {
       <div className="w-9/12 mx-auto rounded-lg  bg-gradient-to-r from-[#453f63] to-[#7764d9]">
         <div className="text-white md:flex justify-around px-3">
           {/* card 1 */}
-          <div className="flex items-center hover:shadow-2xl duration-300">
+          <div
+            data-aos="fade-up"
+            className="flex items-center hover:shadow-2xl duration-300"
+          >
             <img className="w-24" src={deliver} alt="" />
 
             <div className="text-center">
@@ -23,7 +26,10 @@ const PopularitySection = () => {
             </div>
           </div>
           {/* card 2 */}
-          <div className="flex items-center  hover:shadow-2xl duration-300">
+          <div
+            data-aos="fade-up"
+            className="flex items-center  hover:shadow-2xl duration-300"
+          >
             <img className="w-24" src={payment} alt="" />
 
             <div className="text-center">
@@ -35,7 +41,10 @@ const PopularitySection = () => {
             </div>
           </div>
           {/* card 3 */}
-          <div className="flex gap-2 items-center  hover:shadow-2xl duration-300">
+          <div
+            data-aos="fade-up"
+            className="flex gap-2 items-center  hover:shadow-2xl duration-300"
+          >
             <img className="w-24" src={call} alt="" />
 
             <div className="text-center">

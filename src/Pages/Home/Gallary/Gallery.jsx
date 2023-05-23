@@ -41,6 +41,7 @@ const Gallery = () => {
       <div className="grid grid-cols-1 w-9/12 mb-4  mx-auto md:grid-cols-3 gap-4">
         {toyCards.map((toyCard) => (
           <div
+            data-aos="zoom-in"
             className="w-full  hover:shadow-slate-400 duration-300 border-red-600 transition-all border rounded-xl p-5 bg-zinc-100 shadow-md"
             key={toyCard.id}
           >
