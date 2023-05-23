@@ -7,6 +7,7 @@ import Blog from "../Pages/Blog/Blog";
 import AllToys from "../Pages/Alltoys/AllToys";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import Error from "../Pages/Error/Error";
+import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path: "viewDetails/:id",
-        element: <ViewDetails></ViewDetails>,
+        element: (
+          <PrivetRoute>
+            <ViewDetails></ViewDetails>
+          </PrivetRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://craft-ease-main-server.vercel.app/viewDetails/${params.id}`
