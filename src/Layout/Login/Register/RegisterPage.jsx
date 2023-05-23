@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const { createUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -16,16 +21,13 @@ const RegisterPage = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
-
         updateProfile(user, {
           displayName: name,
           photoURL: photo,
         })
+        navigate(from, { replace: true })
           .then(() => {
-            alert("Profile Update");
-            // Profile updated!
-            // ...
+
           })
           .catch((error) => {
             // An error occurred

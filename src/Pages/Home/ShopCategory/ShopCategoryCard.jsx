@@ -31,10 +31,7 @@ const ShopCategoryCard = ({ toy }) => {
   };
 
   return (
-    <div
-      data-aos="fade-up-right"
-      className="border border-red-500 p-5 rounded-lg shadow-md hover:shadow-2xl duration-300 hover:drop-shadow-lg"
-    >
+    <div data-aos="flip-up" className="border border-red-500 p-5 rounded-lg shadow-md hover:shadow-2xl duration-300 hover:drop-shadow-lg">
       <div className="w-60 m-auto">
         <img className="w-full relative p-4" src={toy.image} alt="" />
       </div>

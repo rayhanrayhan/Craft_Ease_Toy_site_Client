@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -7,11 +7,15 @@ const LoginPage = () => {
   const { signIn, googleSignIn, setLoading } = useContext(AuthContext);
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+
   const handleSignInGoogle = () => {
     googleSignIn()
       .then((res) => {
         const user = res.user;
-        console.log(user);
+        navigate(from, { replace: true })
       })
       .catch((error) => {
         setError(error.message);
@@ -23,7 +27,6 @@ const LoginPage = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     // Validation
     if (email === "" || password === "") {
@@ -38,8 +41,8 @@ const LoginPage = () => {
 
     signIn(email, password)
       .then((result) => {
+        navigate(from, { replace: true })
         form.reset();
-        navigate(from, { replace: true });
       })
       .catch((error) => {
         // console.log("Invalid email or password");

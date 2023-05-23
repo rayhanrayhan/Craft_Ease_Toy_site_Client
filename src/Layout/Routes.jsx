@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: "add-toy",
-        element: <AddToy></AddToy>,
+        element: <PrivetRoute><AddToy></AddToy></PrivetRoute>
       },
       {
         path: "login",
@@ -42,19 +42,19 @@ const router = createBrowserRouter([
         path: "allToys",
         element: <AllToys></AllToys>,
         loader: () =>
-          fetch("https://craft-ease-main-server.vercel.app/allToys"),
+          fetch("https://craft-ease-main-server.vercel.app/allToys")
       },
       {
         path: "my-toys",
-        element: <MyToys></MyToys>,
+        element: <PrivetRoute><MyToys></MyToys></PrivetRoute>
       },
       {
         path: "update/:id",
-        element: <UpdateToy></UpdateToy>,
+        element: <PrivetRoute><UpdateToy></UpdateToy></PrivetRoute>,
         loader: ({ params }) =>
           fetch(
             `https://craft-ease-main-server.vercel.app/viewDetails/${params.id}`
-          ),
+          )
       },
       {
         path: "viewDetails/:id",

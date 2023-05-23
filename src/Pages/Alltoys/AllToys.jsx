@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import ToysRow from "./ToysRow";
 
 const AllToys = () => {
+
   const [allToys, setAllToys] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -11,16 +12,14 @@ const AllToys = () => {
   };
 
   useEffect(() => {
-    fetch(
-      `https://craft-ease-main-server.vercel.app/allToys?search=${searchQuery}`
-    )
-      .then((res) => res.json())
-      .then((data) => setAllToys(data));
-  }, [searchQuery]);
+    fetch(`https://craft-ease-main-server.vercel.app/allToys?search=${searchQuery}`)
+      .then(res => res.json())
+      .then(data => setAllToys(data))
+  }, [searchQuery])
 
   return (
     <div className="p-4 md:p-28">
-      <h1 className="text-4xl text-center my-10">All Toys</h1>
+      <h1 className='text-4xl text-center my-10'>All Toys</h1>
 
       {/* Reduced padding on mobile devices */}
       <div className="text-center my-6">
@@ -31,7 +30,9 @@ const AllToys = () => {
           value={searchQuery}
           onChange={handleSearchQueryChange}
         />
-        <button className="btn btn-primary">Search</button>
+        <button className="btn btn-primary">
+          Search
+        </button>
       </div>
       <table className="table table-compact w-full">
         <thead>
