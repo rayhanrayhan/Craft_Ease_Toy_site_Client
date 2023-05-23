@@ -19,7 +19,10 @@ const HotProductsCard = ({ product }) => {
   };
 
   return (
-    <div className="border p-3 bg-slate-50 border-red-500  rounded-lg my-3 hover:shadow-2xl duration-300">
+    <div
+      data-aos="flip-left"
+      className="border p-3 bg-slate-50 border-red-500  rounded-lg my-3 hover:shadow-2xl duration-300"
+    >
       <img src={product.img} alt="" />
       <p className="my-1">
         <span className="font-bold ">price: $</span>
