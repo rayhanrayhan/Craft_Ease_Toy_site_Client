@@ -48,7 +48,7 @@ const ShopCategoryCard = ({ toy }) => {
           <p>price: $ {toy.price}</p>
         </div>
         <div className="text-end ">
-          <Link className="border p-2 rounded-md btn btn-primary">
+          <Link className="btn btn-primary" to={`/viewDetails/${toy._id}`}>
             View Details
           </Link>
         </div>

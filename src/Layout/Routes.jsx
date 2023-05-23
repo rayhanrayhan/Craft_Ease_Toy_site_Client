@@ -31,13 +31,16 @@ const router = createBrowserRouter([
       {
         path: "allToys",
         element: <AllToys></AllToys>,
-        loader: () => fetch("http://localhost:5000/allToys"),
+        loader: () =>
+          fetch("https://craft-ease-main-server.vercel.app/allToys"),
       },
       {
         path: "viewDetails/:id",
         element: <ViewDetails></ViewDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/viewDetails/${params.id}`),
+          fetch(
+            `https://craft-ease-main-server.vercel.app/viewDetails/${params.id}`
+          ),
       },
     ],
   },
