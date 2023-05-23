@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const RegisterPage = () => {
   const { createUser } = useContext(AuthContext);
@@ -39,6 +40,9 @@ const RegisterPage = () => {
 
   return (
     <div className="h-screen flex items-center justify-center bg-gray-200">
+      <Helmet>
+        <title>Craft Ease - Register page</title>
+      </Helmet>
       <div className="bg-white p-10 rounded-lg shadow-lg max-w-md w-full">
         <h1 className="text-2xl font-bold mb-5 text-center">Register</h1>
         <form onSubmit={handleRegister} className="space-y-4">

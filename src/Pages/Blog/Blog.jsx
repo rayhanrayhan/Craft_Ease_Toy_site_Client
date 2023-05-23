@@ -1,8 +1,12 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 const Blog = () => {
   return (
     <div className="my-28">
+      <Helmet>
+        <title>Craft Ease - Blog page</title>
+      </Helmet>
       <div className="flex justify-center py-10">
         <div className="max-w-2xl w-full">
           <div className="grid grid-cols-2 gap-8">

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import MyToysRow from './MyToysRow';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
@@ -50,6 +51,9 @@ const MyToys = () => {
 
     return (
         <section className="p-4 md:p-28">
+            <Helmet>
+                <title>Craft Ease - My Toys page</title>
+            </Helmet>
             <h1 className='text-4xl text-center my-10'>My Toys</h1>
             <div className='my-4 text-right ml-auto'>
                 <button onClick={() => setSort('low')} className="btn btn-outline btn-info mr-2">Low Price</button>

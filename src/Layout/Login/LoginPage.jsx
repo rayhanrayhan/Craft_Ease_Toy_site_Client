@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const LoginPage = () => {
   const { signIn, googleSignIn, setLoading } = useContext(AuthContext);
@@ -55,6 +56,9 @@ const LoginPage = () => {
 
   return (
     <div className="h-screen flex items-center justify-center bg-gray-200">
+      <Helmet>
+        <title>Craft Ease - Login page</title>
+      </Helmet>
       <div className="bg-white p-10 rounded-lg shadow-lg max-w-md w-full">
         <h1 className="text-2xl font-bold mb-5 text-center">Log In</h1>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}

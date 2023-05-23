@@ -6,6 +6,7 @@ import {
   FaStarHalfAlt,
   FaRegStar,
 } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const ViewDetails = () => {
   const viewDetailsData = useLoaderData();
@@ -42,6 +43,9 @@ const ViewDetails = () => {
 
   return (
     <div className="py-52 md:p-32 text-center mt-10 mb-0">
+      <Helmet>
+        <title>Craft Ease - View Details page</title>
+      </Helmet>
       <div className="md:flex justify-between items-center card border px-3 py-2 drop-shadow-lg hover:drop-shadow-2xl duration-300 border-red-600 lg:card-side bg-base-100 shadow-xl inline-block">
         <figure className="m-0">
           <img className="" src={viewDetailsData.image} alt="Album" />

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import ToysRow from "./ToysRow";
+import { Helmet } from "react-helmet";
 
 const AllToys = () => {
 
@@ -19,6 +20,9 @@ const AllToys = () => {
 
   return (
     <div className="p-4 md:p-28">
+      <Helmet>
+        <title>Craft Ease - All Toys page</title>
+      </Helmet>
       <h1 className='text-4xl text-center my-10'>All Toys</h1>
 
       {/* Reduced padding on mobile devices */}

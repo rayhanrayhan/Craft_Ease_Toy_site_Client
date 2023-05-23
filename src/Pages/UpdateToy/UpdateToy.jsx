@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -38,6 +39,9 @@ const UpdateToy = () => {
     }
     return (
         <section className="w-9/12 mx-auto mt-40">
+            <Helmet>
+                <title>Craft Ease - Update Toy page</title>
+            </Helmet>
             <h1 className='text-4xl text-center'>Update Toy</h1>
 
             <form onSubmit={handleOnSubmit} className='flex flex-col gap-3 w-full md:w-[500px] mx-auto my-10 px-4 py-8 shadow-lg rounded-lg'>

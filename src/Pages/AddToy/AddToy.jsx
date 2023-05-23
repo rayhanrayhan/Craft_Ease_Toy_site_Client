@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const AddToy = () => {
     const { user } = useContext(AuthContext);
@@ -38,6 +39,9 @@ const AddToy = () => {
     }
     return (
         <section className="w-9/12 mx-auto mt-40">
+            <Helmet>
+                <title>Craft Ease - Add Toy page</title>
+            </Helmet>
             <h1>Add Toy</h1>
 
             <form onSubmit={handleOnSubmit} className='flex flex-col gap-3 w-full md:w-[500px] mx-auto my-10 px-4 py-8 shadow-lg rounded-lg'>
