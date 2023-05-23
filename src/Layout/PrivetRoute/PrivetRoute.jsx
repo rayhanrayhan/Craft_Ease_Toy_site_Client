@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
-const PrivetRoute = () => {
+const PrivetRoute = ({ children }) => {
   const location = useLocation();
   const { user } = useContext(AuthContext);
   if (user) {
@@ -11,7 +11,9 @@ const PrivetRoute = () => {
 
   return (
     <div>
-      <Navigate to="/login" state={{ from: location }} repla></Navigate>
+      <Navigate to="/login" state={{ from: location }} replace>
+        {" "}
+      </Navigate>
     </div>
   );
 };
