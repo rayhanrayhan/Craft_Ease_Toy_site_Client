@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggle = () => {
@@ -21,7 +21,7 @@ const Navbar = () => {
             to="/"
           >
             <img className="w-20 h-20" src={logo} alt="Website Logo" />
-            <span className="text-xl font-bold ml-2 text-[#fac2eb]">
+            <span className="text-xl font-bold ml-2 text-[#fac2eb] ">
               CRAFTEASE
             </span>
           </Link>
@@ -29,7 +29,7 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="navbar-center hidden lg:flex flex-wrap gap-5">
-          <ul className="navbar-menu inline-flex items-center gap-5">
+          <ul className="navbar-menu inline-flex items-center ml-20 gap-5">
             <li className="navbar-item">
               <Link to="/" className="navbar-link">
                 Home
@@ -77,7 +77,7 @@ const Navbar = () => {
         <ul>
           {user ? (
             <li>
-              <button>Logout</button>
+              <button onClick={() => logOut()}>Logout</button>
             </li>
           ) : (
             <li>
